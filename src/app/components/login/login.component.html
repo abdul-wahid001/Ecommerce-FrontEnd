@@ -1,0 +1,52 @@
+<ngx-spinner
+  bdColor= "rgba(151,149,149,0.4)"
+  size="large"
+  color="black"
+  type="ball-clip-rotate-pulse"
+  fullScreen="true"
+>
+  <p style="font-size: 20px; color: black">Please Wait ... </p>
+</ngx-spinner>
+
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-6 d-flex mx-auto flex-column">
+      <form #form = ngForm (ngSubmit) = "onSubmit(form)">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email"
+            class="form-control"
+            ngModel
+            name="email"
+            required
+            email>
+
+        </div>
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password"
+            class="form-control"
+            ngModel
+            name="password"
+            required
+            minlength="6"
+            >
+
+        </div>
+
+        <div>
+            <button class="btn btn-primary mr-1 btn-block" type="submit" [disabled] = "!form.valid">Login</button>
+
+            <button class="btn btn-secondary mr-1 btn-block" (click) = "onSwithMode()" type="button">Switch to Sign Up</button>
+
+            <button (click)="signInWithGoogle()" class="btn btn-danger btn-block mt-4"><span><i
+              class="fa fa-google"></i> Google </span>
+            </button>
+        </div>
+    </form>
+
+      </div>
+    </div>
+  </div>
+</div>
